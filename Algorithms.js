@@ -80,3 +80,31 @@ function repeatStringNumTimes(str, num) {
 
 repeatStringNumTimes("abc", 3);
 
+                            //-----Truncate a string where the number says-----
+
+
+function truncateString(str, num) {
+  // Clear out that junk in your trunk
+  if (str.length > num && num > 3) {
+    return str.slice(0, (num - 3)) + '...';
+  } else if (str.length > num && num <= 3) {
+    return str.slice(0, num) + '...';
+  } else {
+    return str;
+  }
+
+
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 11);
+
+
+                        //-----Telephone algorithm ideas
+                        
+if (str.length > 16 || str.length < 10) {
+    return false;
+  } else if (str.includes(/[\\\(\)\-]/)) {
+    return false;
+  } else {
+    return true;
+  }
