@@ -99,12 +99,30 @@ function truncateString(str, num) {
 truncateString("A-tisket a-tasket A green and yellow basket", 11);
 
 
-                        //-----Telephone algorithm ideas
-                        
-if (str.length > 16 || str.length < 10) {
-    return false;
-  } else if (str.includes(/[\\\(\)\-]/)) {
-    return false;
-  } else {
-    return true;
+            //----- Chunk Monkey creating arrays inside arrays using splice-----
+            
+            function chunkArrayInGroups(arr, size) {
+  // Break it up.
+  
+  var array = [];
+  
+  for (var i = 0; i < arr.length; i+=size){
+    array.push(arr.slice(i, i+size));
   }
+  
+  return array;
+  
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+
+                      //-----Cut the head of the snake (I felt it was easy)-----
+                      
+ function slasher(arr, howMany) {
+
+  return arr.slice(howMany);
+}
+
+slasher([1, 2, 3], 2);
+
