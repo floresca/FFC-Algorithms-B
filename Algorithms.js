@@ -126,3 +126,66 @@ chunkArrayInGroups(["a", "b", "c", "d"], 2);
 
 slasher([1, 2, 3], 2);
 
+                      //-----Falsy Bouncer using the filter method to filer out what we dont want-----
+                    
+function bouncer(arr) {
+
+   var newArr = [];
+   
+   for(var i = 0; i < arr.length; i++){
+     if (Boolean(arr[i]) !== false){
+         newArr.push(arr[i]);
+         }
+   }
+  
+  return newArr;
+}
+
+bouncer([7, "ate", "", false, 9]);
+
+
+                      //----- Seek and Destroy  -----
+                      
+function destroyer(arr) {
+  
+  var cars = Array.prototype.slice.call(arguments);
+  
+  for(var i = 0; i < arr.length; i++){
+    for(var j = 0; j < arr.length; j++){
+      if (arr[i] === cars[j]){
+        delete arr[i];
+      }
+    }
+  }
+ 
+ 
+  return arr.filter(Boolean);
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+                      // ----- Where do I belong? -----
+                      
+                      
+function getIndexToIns(arr, num) {
+  
+  var newArr = [];
+  newArr.push(num);
+  
+  for(var i = 0; i < arr.length; i++){
+    newArr.push(arr[i]);
+  }
+  
+  newArr.sort(function(a, b){
+    return a - b;
+  });
+  
+  for(var j = 0; j < newArr.length; j++){
+    if(newArr[j] === num){
+      return j;
+    }
+  }
+
+}
+
+getIndexToIns([40, 60], 50);
